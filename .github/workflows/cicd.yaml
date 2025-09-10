@@ -29,17 +29,17 @@ jobs:
         run: |
           pytest --cov=src tests/ --cov-report=xml --cov-report=html
     
-      #upload coverage report
-        - name: Upload coverage report
-            uses: actions/upload-artifact@v4
-            with:
-              name: coverage-report
-              path: coverage.xml
+      # upload coverage report
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
   docker:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      # Checkout thew repository
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v5
 
@@ -58,5 +58,5 @@ jobs:
           push: true
           tags: ${{ secrets.Docker_Hub_Username }}/gist-app:${{github.run_number}}
           file: ./Dockerfile
-          
+
           
