@@ -27,4 +27,4 @@ jobs:
       # Run test cases with coverage
       - name: Run test with coverage
         run: |
-          pytest --cov=src /tests --cov-report=xml --cov-report=html
+          pytest --cov=src tests/ --cov-report=xml --cov-report=html
